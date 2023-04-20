@@ -16,29 +16,31 @@ body{
 }
 
 .container{
-    padding-top: 10%;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
 }
 
 .moeda1 {
     display: grid;
-    margin-right: 10%;
+    margin-right: 3%;
     background-color: white;
-    border-radius: 30px;
-    
-
+    border-radius: 20px;
+    width: 300px;
 }
 
 .moeda2 {
     display: grid;
-    margin-left: 10%;
+    margin-left: 3%;
     background-color: white;
+    border-radius: 20px;
+    width: 300px;
 }
 
-.container select {
+
+.container input {
     border: 1px solid #dedede;
-    font-size: 16px;
+    font-size: 30px;
     background: transparent;
     background-position: right 10px top 50%, 0, 0;
     background-size: 12px auto, 100%;
@@ -46,4 +48,35 @@ body{
     margin: 10px;
     font-family: 'Montserrat';
     width: 200px;
+    padding: 10px 20px 0px 20px;
   }
+
+.container select {
+    border: none;
+    font-size: 16px;
+    background: transparent;
+    background-position: right 10px top 50%, 0, 0;
+    background-size: 12px auto, 100%;
+    border-radius: 50px; 
+    margin: 10px;
+    font-family: 'Montserrat';
+    width: 80px;
+    margin-left: 26px;
+  }
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+   box-shadow: 0 0 0 0;
+   border: 0 none;
+   outline: 0;
+
+}
+
+
+
+
