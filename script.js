@@ -1,49 +1,57 @@
-@font-face {
-    font-family: 'Montserrat';
-    src: url('/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
-  }
+const moedaEl_um = document.getElementById("moeda-um");
+const moedaEl_dois = document.getElementById("moeda-dois");
+const quantEl_um = document.getElementById("quant-um");
+const quantEl_dois = document.getElementById("quant-dois");
 
-body{
-    background-image: linear-gradient(230deg, #000000, #003585);
-    height:0;
-    font-family: 'Montserrat';
-}
+const taxaEl = document.getElementById('taxa');
+const trocar = document.getElementById('trocar');
 
-.imagem{
-    padding-top: 5%;
-    display: flex;
-    justify-content: center;
-}
 
-.container{
-    padding-top: 10%;
-    display: flex;
-    justify-content: center;
-}
 
-.moeda1 {
-    display: grid;
-    margin-right: 10%;
-    background-color: white;
-    border-radius: 30px;
-    
+// fetch currency rates and update the dom
+function calcular(){
+    const moeda_um = moedaEl_um.value
+    const moeda_dois = moedaEl_dois.value
+    var quant_um = Number(quantEl_um.value)
+    var quant_dois = Number(quantEl_dois.value)
 
-}
+    fetch(`https://v6.exchangerate-api.com/v6/65b3eaf4fe2a4c970d24a412/latest/${moeda_um}`)
+        .then(res => res.json())
+        .then(data => {
+            const taxa = data.conversion_rates[moeda_dois]
+            taxaEl.innerText = `1 ${moeda_um} = ${taxa} ${moeda_dois}`;
+            quantEl_dois.value = (quant_um*taxa).toFixed(2);
+        });
+    }
 
-.moeda2 {
-    display: grid;
-    margin-left: 10%;
-    background-color: white;
-}
+function calcular2(){
+    const moeda_um = moedaEl_um.value
+    const moeda_dois = moedaEl_dois.value
+    var quant_um = Number(quantEl_um.value)
+    var quant_dois = Number(quantEl_dois.value)
 
-.container select {
-    border: 1px solid #dedede;
-    font-size: 16px;
-    background: transparent;
-    background-position: right 10px top 50%, 0, 0;
-    background-size: 12px auto, 100%;
-    border-radius: 100px; 
-    margin: 10px;
-    font-family: 'Montserrat';
-    width: 200px;
-  }
+    fetch(`https://v6.exchangerate-api.com/v6/65b3eaf4fe2a4c970d24a412/latest/${moeda_um}`)
+        .then(res => res.json())
+        .then(data => {
+            const taxa = data.conversion_rates[moeda_dois]
+            taxaEl.innerText = `1 ${moeda_um} = ${taxa} ${moeda_dois}`;
+            quantEl_um.value = (quant_dois/taxa).toFixed(2);
+        });
+    }
+
+
+
+
+moedaEl_um.addEventListener('change', calcular);
+moedaEl_dois.addEventListener('change', calcular2);
+quantEl_um.addEventListener('input', calcular);
+quantEl_dois.addEventListener('input', calcular2);
+
+trocar.addEventListener('click', () => {
+    const temp = moedaEl_um.value;
+    moedaEl_um.value = moedaEl_dois.value;
+    moedaEl_dois.value = temp;
+    calcular();
+})
+
+calcular();
