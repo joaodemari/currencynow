@@ -4,7 +4,7 @@
   }
 
 body{
-    background-image: linear-gradient(230deg, #000000, #003585);
+    background-image: linear-gradient(230deg, #1da1f2, #002763);
     height:0;
     font-family: 'Montserrat';
 }
@@ -14,10 +14,15 @@ body{
     display: flex;
     justify-content: center;
 }
-
+.taxa{
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+}
 .container{
     padding-top: 20px;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -28,6 +33,41 @@ body{
     border-radius: 20px;
     width: 300px;
 }
+
+.moeda1:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+}
+
+.moeda2:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+} 
+.meio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+}
+
+.meio:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.taxa{
+    padding-top: 6px;
+    font-size: 15px;
+    color: white;
+}
+
 
 .moeda2 {
     display: grid;
@@ -55,13 +95,40 @@ body{
     border: none;
     font-size: 16px;
     background: transparent;
-    background-position: right 10px top 50%, 0, 0;
-    background-size: 12px auto, 100%;
-    border-radius: 50px; 
     margin: 10px;
     font-family: 'Montserrat';
-    width: 80px;
+    width: 70px;
     margin-left: 26px;
+    padding-right: 10px;
+    outline: none;
+    nav-down: initial;
+}
+
+
+select::-webkit-scrollbar{
+    background-color: rgba(255, 255, 255, 0.137);
+    border-radius: 100px;
+    width: 8px;
+}
+
+select::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 4, 53, 0.185);
+    border-radius: 100px;
+}
+
+select::-webkit-scrollbar-track{
+    background:transparent;
+    border-radius: 100px;
+}
+
+
+
+.container button{
+    border: 0;
+    font-family: 'Montserrat';
+    border-radius: 10px;
+    height: 70px;
+    width: 70px;
   }
 
 input[type=number]::-webkit-inner-spin-button { 
@@ -74,9 +141,5 @@ input[type=number] {
    box-shadow: 0 0 0 0;
    border: 0 none;
    outline: 0;
-
 }
-
-
-
 
