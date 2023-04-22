@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <section>
     <div class="imagem">
         <img id="logo" src="logopng.png" alt="logo site">
+        
     </div>
-    <section class="container">
+    <div class="taxa" id="taxa"></div>
+    <div class="container">
         <div class="moeda1">
             <input type="number" id="quant-um" placeholder="0" value="1" />
           <select id="moeda-um">
@@ -71,11 +74,8 @@
           
         </div>
   
-        <div class="trocar-moedas">
-          <button class="btn" id="trocar">trocar</button>
-          <div class="taxa" id="taxa"></div>
-        </div>
-  
+        <div class="meio" d="trocar"> <img src="/botao trocar.svg" alt="botão de trocar" id="trocar"></div>
+        
         <div class="moeda2">
            <input type="number" id="quant-dois" placeholder="0" />
            <select id="moeda-dois">
@@ -94,7 +94,7 @@
             <option value="DKK">DKK</option>
             <option value="DOP">DOP</option>
             <option value="EGP">EGP</option>
-            <option value="EUR" selected>EUR</option>
+            <option value="EUR">EUR</option>
             <option value="FJD">FJD</option>
             <option value="GBP">GBP</option>
             <option value="GTQ">GTQ</option>
@@ -133,6 +133,7 @@
             <option value="ZAR">ZAR</option>
             </select>
         </div>
+      </div>
     </section>
     <script src="script.js"></script>
 </body>
